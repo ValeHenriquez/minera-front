@@ -1,40 +1,6 @@
-import { useState } from "react";
-import {userServiceFactory} from "../clientServices/userServices";
-import useUser from "../lib/useUser";
+import * as React from 'react';
 import truck from './assets/img/vehiculo.png';
-
-const userService = userServiceFactory();
 export default function Login() : any {
-    const {user, mutateUser} = useUser({
-        redirectTo: "/",
-        redirectIfFound: true,
-    });
-    const [username, setUsername] = useState("");
-    const [password, setPassword] = useState("");
-
-    const MyComponent: React.FC = () => {
-        const [username, setUsername] = useState('');
-        const [password, setPassword] = useState('');
-
-        const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-            e.preventDefault();
-            try {
-                await userService.login(username, password);
-                // Aquí debes usar la función mutateUser para actualizar el estado del usuario
-            } catch (error: any) {
-                const responseError = error.response?.data?.error;
-                alert(responseError || 'An error occurred.');
-            }
-        };
-
-        const usernameHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-            setUsername(e.target.value);
-        };
-
-        const passwordHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-            setPassword(e.target.value);
-        };
-
         return (
             <div className={"bg-white px-10 py-20 rounded-3xl border-2 border-gray-100"}>
                 <div style={{display: 'flex', alignItems: 'center'}}>
@@ -81,4 +47,3 @@ export default function Login() : any {
             </div>
         );
     }
-}
