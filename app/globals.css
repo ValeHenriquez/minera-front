@@ -4,8 +4,8 @@
 
 :root {
     --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 207, 227, 235;
-    --background-end-rgb: 230, 241, 246;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -16,18 +16,9 @@
     }
 }
 
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-#login{
-    background: linear-gradient(
-            to bottom,
+body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom,
             transparent,
-            rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+            rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
-
