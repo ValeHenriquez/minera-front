@@ -23,24 +23,24 @@ const RequestAccessForm: React.FC = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="flex flex-wrap justify-center">
                     <div className="w-full lg:w-5/6 px-4">
-                        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300">
+                        <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-3xl bg-white">
                             <div className="flex-auto p-5 lg:p-10">
-                                <h4 className="text-2xl font-semibold">
+                                <h1 className="text-5xl font-semibold mb-2">
                                     Necesitas obtener acceso?
-                                </h4>
+                                </h1>
                                 <p className="leading-relaxed mt-1 mb-4 text-gray-600">
                                     Completa tus datos y revisaremos tu solicitud.
                                 </p>
                                 <div className="relative w-full mb-3 mt-8">
                                     <label
-                                        className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        className="text-lg font-medium mb-2"
                                         htmlFor="full-name"
                                     >
                                         Nombre Completo
                                     </label>
                                     <input
                                         type="text"
-                                        className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        className="w-full rounded-3xl border-2 border-blue-400 rounder-xl p-4 mt-1 bg-ffff"
                                         placeholder="Nombre Completo"
                                         style={{ transition: "all .15s ease" }}
                                         {...register("fullname", { required: true })}
@@ -49,15 +49,15 @@ const RequestAccessForm: React.FC = () => {
 
                                 <div className="relative w-full mb-3">
                                     <label
-                                        className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        className="text-lg font-medium mb-2"
                                         htmlFor="email"
                                     >
                                         Correo
                                     </label>
                                     <input
                                         type="email"
-                                        className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-                                        placeholder="Coreeo"
+                                        className="w-full rounded-3xl border-2 border-blue-400 rounder-xl p-4 mt-1 bg-ffff"
+                                        placeholder="Correo"
                                         style={{ transition: "all .15s ease" }}
                                         {...register("email", { required: true })}
                                     />
@@ -65,7 +65,7 @@ const RequestAccessForm: React.FC = () => {
 
                                 <div className="relative w-full mb-3">
                                     <label
-                                        className="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                        className="text-lg font-medium mb-2"
                                         htmlFor="message"
                                     >
                                         Mensaje
@@ -73,14 +73,14 @@ const RequestAccessForm: React.FC = () => {
                                     <textarea
                                         rows={4}
                                         cols={80}
-                                        className="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+                                        className="w-full rounded-3xl border-2 border-blue-400 rounder-xl p-4 mt-1 bg-ffff"
                                         placeholder="Escribe un mensaje..."
                                         {...register("message", { required: true })}
                                     />
                                 </div>
-                                <div className="text-center mt-6">
+                                <div className="mt-8 flex flex-col gap-y-4">
                                     <button
-                                        className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                                        className="activate:scale-[.98] activate:duration-75 hover:scale-[1.01] ease-in-out transition-all bg-blue-600 text-white text-lg font-bold rounded-xl py-3 border-blue-600"
                                         type="submit"
                                         style={{ transition: "all .15s ease" }}
                                     >
@@ -91,7 +91,7 @@ const RequestAccessForm: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </form>
+            </form >
 
         </>
     )
