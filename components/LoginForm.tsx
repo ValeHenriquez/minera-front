@@ -1,7 +1,10 @@
+'use client'
 import * as React from 'react';
 import { useForm } from "react-hook-form";
-
+import { useRouter } from 'next/navigation';
 import truck from './assets/img/vehiculo.png';
+
+
 
 type FormData = {
     email: string,
@@ -10,14 +13,17 @@ type FormData = {
 
 const Login: React.FC = () => {
 
+
+    const router = useRouter();
+
     const { register, handleSubmit, reset } = useForm<FormData>();
 
     //formState: { errors }, no estamos haciendo validaciones por ahora
 
     const onSubmit = (data: FormData) => {
         alert(JSON.stringify(data));
-
         reset();
+        router.push('/');
     };
 
     return (
