@@ -2,13 +2,14 @@ import React, { useRef } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 import Image from "next/image";
-import { defaultNavItems, NavItem } from "./defaultNavItems";
+import { defaultNavbarItems, NavItem } from "./defaultNavItems";
 import {
     ChevronDoubleLeftIcon,
     ChevronDoubleRightIcon,
     ArrowLeftOnRectangleIcon,
-
+    HomeIcon,
 } from "@heroicons/react/24/outline";
+import CircleIcon from "./assets/icons/CircleIconLetter";
 
 // add NavItem prop to component prop
 type Props = {
@@ -17,9 +18,12 @@ type Props = {
     setCollapsed(collapsed: boolean): void;
     shown: boolean;
 };
+
+
+
 const Sidebar = ({
     collapsed,
-    navItems = defaultNavItems,
+    navItems = defaultNavbarItems,
     shown,
     setCollapsed,
 }: Props) => {
@@ -82,6 +86,22 @@ const Sidebar = ({
                         )}
                     </div>
                 </div>
+
+                <div className="flex flex-col gap-2 items-stretch pb-2">
+                    <div
+                        className={classNames({
+                            "text-indigo-100 hover:bg-indigo-900 flex": true,
+                            "transition-colors duration-300": true,
+                            "rounded-md p-2 mx-3 gap-4": !collapsed,
+                            "rounded-full p-2 mx-3 w-10 h-10": collapsed,
+                        })}
+                    >
+                        <Link href={'/'} className="flex gap-2">
+                            <HomeIcon className="w-6 h-6" /> <span>{!collapsed && "Home"}</span>
+                        </Link>
+                    </div>
+                </div>
+
                 <nav className="flex-grow">
                     <ul className="my-2 flex flex-col gap-2 items-stretch ">
                         {navItems.map((item, index) => (
@@ -95,7 +115,7 @@ const Sidebar = ({
                                 })}
                             >
                                 <Link href={item.href} className="flex gap-2">
-                                    {item.icon} <span>{!collapsed && item.label}</span>
+                                    <CircleIcon text={item.letter} /> <span>{!collapsed && item.label}</span>
                                 </Link>
                             </li>
                         ))}
