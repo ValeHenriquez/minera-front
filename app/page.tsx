@@ -1,5 +1,29 @@
 import Image from 'next/image'
 
+// Se inicializa el daemon de cron
+const cron = require("node-cron");
+
+// Queda programado para llamar el script todos los dias a las 8:30 am
+cron.schedule("*/10 * * * * *", function () {
+  dataFetchPython();  
+},
+  {
+    timezone: "America/Santiago"
+  }
+);
+
+function dataFetchPython() {
+  var spawn = require("child_process").spawn;
+      
+    
+  var process = spawn('python',["main.py"]);
+
+  process.stdout.on('data', (data: string) =>
+  console.log(`output de python es ${data}`));    
+  
+}
+
+
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">

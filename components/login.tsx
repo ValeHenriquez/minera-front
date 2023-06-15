@@ -6,9 +6,7 @@ export default function Login() {
         <div className={"bg-white px-10 py-20 rounded-3xl border-2 border-gray-100"}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
                 <h1 className="text-5xl font-semibold">Iniciar sesión</h1>
-                <div className="flex items-center justify-center animate-bounce" style={{ marginLeft: '10px' }}>
-                    <img src={truck} style={{ width: '50px' }} />
-                </div>
+                
             </div>
             <div className={"mt-8"}>
                 <div>

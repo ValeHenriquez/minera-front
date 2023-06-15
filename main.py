@@ -1,14 +1,14 @@
+import numpy as np
 import pandas as pd
-import sqlalchemy
+from sqlalchemy import create_engine
+
+# Crea un DataFrame de ejemplo
+data = {'Nombre': ['Juan', 'María', 'Pedro'],
+        'Edad': [25, 30, 35]}
+df = pd.DataFrame(data)
+
+# Realiza un cálculo utilizando NumPy
+promedio = np.mean(df['Edad'])
 
 
-
-df= pd.read_csv('datos-etl\DatosEjemploDiciembre2.csv',sep=';', encoding= 'unicode_escape')
-
-fecha_Ciclos = df[['Fecha','Ciclos']].copy()
-
-
-engine = sqlalchemy.create_engine('postgresql://postgres:123456@localhost:5432/next-test')
-
-fecha_Ciclos.to_sql('tabla2fechaciclos',engine,if_exists='replace')
-
+print(f"El promedio de edad es: {promedio}")
