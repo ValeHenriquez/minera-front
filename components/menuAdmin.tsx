@@ -2,7 +2,6 @@ import * as React from 'react';
 import '../components/assets/styles/styles.css'
 import 'react-datepicker/dist/react-datepicker.css';
 import MyDatepicker from "@/components/assets/datepicker/datepicker";
-import PhaseTable from "@/components/assets/phaseTable/PhaseTable";
 
 
 const MenuAdmin: React.FC = () => {
@@ -11,10 +10,17 @@ const MenuAdmin: React.FC = () => {
 
             <div className="h-1/2 flex justify-center p-1">
                 <div className="custom-box bg-sky-400 rounded-2xl p-3">
-                    <h1 className="text-xl text-black flex justify-start font-bold">FACTORES DE CARGA</h1>
-                    <div className={"flex justify-end"}>
-                        <h1 className={" text-lg text-black font-bold mt-1 mr-2"}>MES</h1>
-                        <MyDatepicker />
+                    <div className="grid grid-cols-2">
+                        <div className="p-4">
+                            <h1 className="text-xl text-black font-bold">FACTORES DE CARGA</h1>
+                        </div>
+                        <div >
+                            <div className={"flex justify-end"}>
+                                <label className="text-lg text-black font-bold mr-2 p-1">MES</label>
+                                <MyDatepicker />
+                            </div>
+                        </div>
+
                     </div>
                     <div className="grid grid-cols-3 divide-x mt-5">
                         <div className="flex justify-center items-center text-2xl font-bold font-roboto bg-blue-200 bg-opacity-80 border border-blue-300 rounded-lg px-4 py-2">
