@@ -79,7 +79,7 @@ const Sidebar = ({
                         {!collapsed && (
                             <div className="flex flex-col ">
                                 <span className="text-indigo-50 my-0">C. Chiang</span>
-                                <Link href="/" className="text-indigo-200 text-sm">
+                                <Link href="/vista-admin" className="text-indigo-200 text-sm">
                                     Admin
                                 </Link>
                             </div>
