@@ -6,7 +6,7 @@ import TabsWithTables from "@/components/TabsWithTables";
 export default function Home() {
     return (
         <main className="flex flex-col flex-grow justify-center min-h-screen items-center">
-            <TabsWithTables contentTitle="El llanero"/>
+            DEFAULT PAGE - REPORTE DIARIO
         </main>
     )
 }

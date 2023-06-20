@@ -13,7 +13,7 @@ export type NavItem = {
 export const defaultNavbarItems: NavItem[] = pits.map((pit: string) => {
     return {
         label: pit,
-        href: "#" + pit.toLowerCase(),
+        href: '/' + pit.toLowerCase(),
         letter: pit[0].toUpperCase()
     };
 });

@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from 'react';
 
 type TabData = {
@@ -163,7 +164,7 @@ const sampleData2: TableData[] = [
     },
     {
         date: '2023-06-07',
-            realProduction: 1600,
+        realProduction: 1600,
         mineral: 800,
         waste: 750,
         totalExtraction: 1750,
@@ -173,7 +174,7 @@ const sampleData2: TableData[] = [
     },
     {
         date: '2023-06-08',
-            realProduction: 1700,
+        realProduction: 1700,
         mineral: 850,
         waste: 800,
         totalExtraction: 1800,
@@ -183,7 +184,7 @@ const sampleData2: TableData[] = [
     },
     {
         date: '2023-06-09',
-            realProduction: 1800,
+        realProduction: 1800,
         mineral: 900,
         waste: 850,
         totalExtraction: 1850,
@@ -193,7 +194,7 @@ const sampleData2: TableData[] = [
     },
     {
         date: '2023-06-10',
-            realProduction: 1900,
+        realProduction: 1900,
         mineral: 950,
         waste: 900,
         totalExtraction: 1900,
@@ -203,7 +204,7 @@ const sampleData2: TableData[] = [
     },
     {
         date: '2023-06-11',
-            realProduction: 2000,
+        realProduction: 2000,
         mineral: 1000,
         waste: 950,
         totalExtraction: 1950,
@@ -213,7 +214,7 @@ const sampleData2: TableData[] = [
     },
     {
         date: '2023-06-12',
-            realProduction: 2100,
+        realProduction: 2100,
         mineral: 1050,
         waste: 1000,
         totalExtraction: 2000,
@@ -223,7 +224,7 @@ const sampleData2: TableData[] = [
     },
     {
         date: '2023-06-13',
-            realProduction: 2200,
+        realProduction: 2200,
         mineral: 1100,
         waste: 1050,
         totalExtraction: 2050,
@@ -325,30 +326,30 @@ const TabsWithTables: React.FC<TabsWithTablesProps> = ({ contentTitle }) => {
         <div className="h-[50vh] overflow-y-auto">
             <table className="table-auto w-full border-collapse border-2 border-indigo-700">
                 <thead>
-                <tr>
-                    <th className="text-black p-3 text-center">Fecha</th>
-                    <th className="text-black p-3 text-center">Producción Real</th>
-                    <th className="text-black p-3 text-center">Mineral</th>
-                    <th className="text-black p-3 text-center">Lastre</th>
-                    <th className="text-black p-3 text-center">Total Extracción</th>
-                    <th className="text-black p-3 text-center">Remanejo</th>
-                    <th className="text-black p-3 text-center">Movimiento Total</th>
-                    <th className="text-black p-3 text-center">Chancado</th>
-                </tr>
+                    <tr>
+                        <th className="text-black p-3 text-center">Fecha</th>
+                        <th className="text-black p-3 text-center">Producción Real</th>
+                        <th className="text-black p-3 text-center">Mineral</th>
+                        <th className="text-black p-3 text-center">Lastre</th>
+                        <th className="text-black p-3 text-center">Total Extracción</th>
+                        <th className="text-black p-3 text-center">Remanejo</th>
+                        <th className="text-black p-3 text-center">Movimiento Total</th>
+                        <th className="text-black p-3 text-center">Chancado</th>
+                    </tr>
                 </thead>
                 <tbody>
-                {tab.data.map((row, index) => (
-                    <tr key={index} className={index % 2 === 0 ? 'bg-indigo-300' : ''}>
-                        <td className="p-2 px-5 text-black text-center">{row.date}</td>
-                        <td className="p-2 px-5 text-black text-center">{row.realProduction}</td>
-                        <td className="p-2 px-5 text-black text-center">{row.mineral}</td>
-                        <td className="p-2 px-5 text-black text-center">{row.waste}</td>
-                        <td className="p-2 px-5 text-black text-center">{row.totalExtraction}</td>
-                        <td className="p-2 px-5 text-black text-center">{row.handling}</td>
-                        <td className="p-2 px-5 text-black text-center">{row.totalMovement}</td>
-                        <td className="p-2 px-5 text-black text-center">{row.crushing}</td>
-                    </tr>
-                ))}
+                    {tab.data.map((row, index) => (
+                        <tr key={index} className={index % 2 === 0 ? 'bg-indigo-300' : ''}>
+                            <td className="p-2 px-5 text-black text-center">{row.date}</td>
+                            <td className="p-2 px-5 text-black text-center">{row.realProduction}</td>
+                            <td className="p-2 px-5 text-black text-center">{row.mineral}</td>
+                            <td className="p-2 px-5 text-black text-center">{row.waste}</td>
+                            <td className="p-2 px-5 text-black text-center">{row.totalExtraction}</td>
+                            <td className="p-2 px-5 text-black text-center">{row.handling}</td>
+                            <td className="p-2 px-5 text-black text-center">{row.totalMovement}</td>
+                            <td className="p-2 px-5 text-black text-center">{row.crushing}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </div>
@@ -361,9 +362,11 @@ const TabsWithTables: React.FC<TabsWithTablesProps> = ({ contentTitle }) => {
         }
     };
 
+    const title = 'Rajo ' + contentTitle.charAt(0).toUpperCase() + contentTitle.slice(1);
+
     return (
         <div className={'bg-white p-10 rounded-lg border-2 border-black'}>
-            <h1 className="text-3xl font-bold mb-6 text-indigo-700 text-center">{contentTitle}</h1>
+            <h1 className="text-3xl font-bold mb-6 text-indigo-700 text-center">{title}</h1>
             <div className="flex items-center justify-center">
                 <div className="min-w-[40px] flex items-center">
                     <button
@@ -377,9 +380,8 @@ const TabsWithTables: React.FC<TabsWithTablesProps> = ({ contentTitle }) => {
                     {tabs.slice(tabRange[0], tabRange[1]).map((tab) => (
                         <button
                             key={tab.id}
-                            className={`text-black px-2 text-xl hover:bg-indigo-700 flex transition-colors duration-300 rounded-md p-2 ${
-                                activeTab.id === tab.id ? 'bg-indigo-700' : ''
-                            } flex-shrink-0 flex-grow justify-center items-center`}
+                            className={`text-black px-2 text-xl hover:bg-indigo-700 flex transition-colors duration-300 rounded-md p-2 ${activeTab.id === tab.id ? 'bg-indigo-700' : ''
+                                } flex-shrink-0 flex-grow justify-center items-center`}
                             onClick={() => setActiveTab(tab)}
                         >
                             {tab.title}
