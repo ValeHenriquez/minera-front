@@ -5,7 +5,7 @@ import MyDatepicker from "@/components/assets/datepicker/datepicker";
 
 
 const MenuAdmin: React.FC = () => {
-    return(
+    return (
         <div className="h-screen w-screen flex flex-col bg-blue-200">
 
             <div className="h-1/2 flex justify-center p-1">
