@@ -14,7 +14,7 @@ const MyDatepicker = () => {
     };
 
     return (
-        <div className="h-1.5">
+        <div className="h-1.5mx-1 ml-2">
             <CustomDatepicker
                 asSingle={true}
                 value={value}

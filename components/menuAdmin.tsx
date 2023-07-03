@@ -2,41 +2,41 @@ import * as React from 'react';
 import '../components/assets/styles/styles.css'
 import 'react-datepicker/dist/react-datepicker.css';
 import MyDatepicker from "@/components/assets/datepicker/datepicker";
+import PhaseTable from "@/components/assets/phaseTable/PhaseTable";
 
 
 const MenuAdmin: React.FC = () => {
-    return(
+    return (
         <div className="h-screen w-screen flex flex-col bg-blue-200">
-
             <div className="h-1/2 flex justify-center p-1">
                 <div className="custom-box bg-sky-400 rounded-2xl p-3">
-                    <div className="grid grid-cols-2">
+                    <div className="grid grid-cols-2 items-center">
                         <div className="p-4">
                             <h1 className="text-xl text-black font-bold">FACTORES DE CARGA</h1>
                         </div>
-                        <div >
-                            <div className={"flex justify-end"}>
-                                <label className="text-lg text-black font-bold mr-2 p-1">MES</label>
-                                <MyDatepicker />
-                            </div>
+                        <div className="flex items-center justify-end">
+                            <label className="text-lg text-black font-bold">MES</label>
+                            <MyDatepicker />
                         </div>
-
                     </div>
-                    <div className="grid grid-cols-3 divide-x mt-5">
-                        <div className="flex justify-center items-center text-2xl font-bold font-roboto bg-blue-200 bg-opacity-80 border border-blue-300 rounded-lg px-4 py-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2">
+                        <button className="flex justify-center items-center text-base font-bold font-roboto focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-1 hover:underline">
                             Esperanza
-                        </div>
-                        <div className="flex justify-center items-center text-2xl font-bold font-roboto bg-blue-200 bg-opacity-80 border border-blue-300 rounded-lg px-4 py-2">
+                        </button>
+                        <button className="flex justify-center items-center text-base font-bold font-roboto focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-1 hover:underline">
                             Llano
-                        </div>
-                        <div className="flex justify-center items-center text-2xl font-bold font-roboto bg-blue-200 bg-opacity-80 border border-blue-300 rounded-lg px-4 py-2">
+                        </button>
+                        <button className="flex justify-center items-center text-base font-bold font-roboto focus:outline-none focus:ring-2 focus:ring-blue-500 rounded-lg px-3 py-1 hover:underline">
                             Tesoro
+                        </button>
+                    </div>
+                    <div className="flex justify-center mt-2">
+                        <div className="w-full">
+                            <PhaseTable />
                         </div>
                     </div>
-
                 </div>
             </div>
-
             <div className="h-1/2 flex justify-center p-1">
                 <div className="custom-box bg-sky-400 flex justify-start rounded-2xl p-3">
                     <h1 className="text-xl text-black font-bold">SOLICITUDES DE ACCESO PENDIENTES</h1>
@@ -44,5 +44,7 @@ const MenuAdmin: React.FC = () => {
             </div>
         </div>
     );
-}
+};
+
+
 export default MenuAdmin;
