@@ -1,4 +1,3 @@
-"use client"
 import React, { useState } from 'react';
 import { DateValueType } from 'react-tailwindcss-datepicker/dist/types';
 import Datepicker from 'react-tailwindcss-datepicker';
@@ -15,10 +14,9 @@ type TableData = {
 };
 
 
-
-const data: TableData[] = [
+const dataSample: TableData[] = [
     {
-        date: "2021-06-21",
+        date: "2023-07-14",
         phase: "Phase 1",
         dailyValue: 10,
         ISOWeek: 25,
@@ -27,29 +25,68 @@ const data: TableData[] = [
         AnnualActual: 2400,
     },
     {
-        date: "2021-06-22",
+        date: "2023-07-14",
         phase: "Phase 2",
-        dailyValue: 15,
-        ISOWeek: 30,
-        MovingWeekly: 60,
-        MonthlyActual: 250,
-        AnnualActual: 3000,
+        dailyValue: 8,
+        ISOWeek: 26,
+        MovingWeekly: 55,
+        MonthlyActual: 180,
+        AnnualActual: 2200,
     },
     {
-        date: "2021-06-23",
+        date: "2023-07-16",
         phase: "Phase 3",
         dailyValue: 12,
-        ISOWeek: 35,
-        MovingWeekly: 70,
-        MonthlyActual: 300,
-        AnnualActual: 3600,
+        ISOWeek: 27,
+        MovingWeekly: 60,
+        MonthlyActual: 220,
+        AnnualActual: 2600,
+    },
+    {
+        date: "2023-07-16",
+        phase: "Phase 1",
+        dailyValue: 11,
+        ISOWeek: 28,
+        MovingWeekly: 58,
+        MonthlyActual: 190,
+        AnnualActual: 2300,
+    },
+    {
+        date: "2023-07-16",
+        phase: "Phase 2",
+        dailyValue: 9,
+        ISOWeek: 29,
+        MovingWeekly: 52,
+        MonthlyActual: 170,
+        AnnualActual: 2100,
+    },
+    {
+        date: "2023-07-19",
+        phase: "Phase 3",
+        dailyValue: 13,
+        ISOWeek: 30,
+        MovingWeekly: 57,
+        MonthlyActual: 210,
+        AnnualActual: 2500,
+    },
+    {
+        date: "2023-07-20",
+        phase: "Phase 1",
+        dailyValue: 10,
+        ISOWeek: 31,
+        MovingWeekly: 53,
+        MonthlyActual: 180,
+        AnnualActual: 2200,
     },
 ];
 
 
 
+const DailyReportTable: React.FC = () => {
+    const today = new Date().toISOString().slice(0, 10);
 
-const DailyTable: React.FC = () => {
+    const [data, setData] = useState<TableData[]>
+        (dataSample.filter((row) => row.date === today));
 
     const [value, setValue] = useState<DateValueType>({
         startDate: null,
@@ -57,22 +94,19 @@ const DailyTable: React.FC = () => {
     });
 
     const handleValueChange = (newValue: DateValueType) => {
-        console.log("newValue:", newValue);
-        setValue(newValue);
+        setData(dataSample.filter((row) => row.date === newValue!.startDate));
     };
 
-
     return (
-        <div className={'h-5/6 w-11/12 flex flex-col  bg-white p-10 rounded-lg border-2 border-black'}>
+        <div className={'h-5/6 w-11/12 flex flex-col bg-white p-10 rounded-lg border-2 border-black'}>
             <div className="flex justify-end pb-10">
                 <div className="h-1.5">
                     <Datepicker
                         i18n="es"
-                        primaryColor={"purple"}
+                        primaryColor="purple"
                         asSingle={true}
-                        placeholder="Selecciona una fecha"
-                        displayFormat={"DD/MM/YYYY"}
-
+                        placeholder={new Date().toISOString().slice(0, 10)}
+                        displayFormat="DD/MM/YYYY"
                         value={value}
                         onChange={handleValueChange}
                     />
@@ -111,4 +145,4 @@ const DailyTable: React.FC = () => {
     );
 };
 
-export default DailyTable;
+export default DailyReportTable;
