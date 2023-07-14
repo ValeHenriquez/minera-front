@@ -39,7 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body
       >
-        <div className='flex h-screen'>
+        <div className='flex flex-grow h-screen w-screen'>
           {showSidebar && (
             <Sidebar
               collapsed={collapsed}
@@ -47,7 +47,10 @@ export default function RootLayout({
               shown={showSidebar}
             />
           )}
-          {children}
+          <div className='flex flex-col flex-grow justify-center'>
+            {children}
+          </div>
+
         </div>
       </body>
     </html>
