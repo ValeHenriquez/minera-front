@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import classNames from "classnames";
 import Link from "next/link";
 import Image from "next/image";
-import { defaultNavbarItems, NavItem } from "./defaultNavItems";
 import {
     ChevronDoubleLeftIcon,
     ChevronDoubleRightIcon,
@@ -12,9 +11,16 @@ import {
 import CircleIcon from "./assets/icons/CircleIconLetter";
 
 // add NavItem prop to component prop
+
+type NavItemProps = {
+    label: string;
+    href: string;
+    letter: string;
+}
+
 type Props = {
     collapsed: boolean;
-    navItems?: NavItem[];
+    navItems?: NavItemProps[];
     setCollapsed(collapsed: boolean): void;
     shown: boolean;
 };
@@ -23,7 +29,6 @@ type Props = {
 
 const Sidebar = ({
     collapsed,
-    navItems = defaultNavbarItems,
     shown,
     setCollapsed,
 }: Props) => {
@@ -80,46 +85,43 @@ const Sidebar = ({
                             <div className="flex flex-col ">
                                 <span className="text-indigo-50 my-0">C. Chiang</span>
                                 <Link href="/auth/profile" className="text-indigo-200 text-sm">
-                                    Admin
+                                    Perfil
                                 </Link>
                             </div>
                         )}
                     </div>
                 </div>
 
-                <div className="flex flex-col gap-2 items-stretch pb-2">
-                    <div
-                        className={classNames({
-                            "text-indigo-100 hover:bg-indigo-900 flex": true,
-                            "transition-colors duration-300": true,
-                            "rounded-md p-2 mx-3 gap-4": !collapsed,
-                            "rounded-full p-2 mx-3 w-10 h-10": collapsed,
-                        })}
-                    >
-                        <Link href={'/'} className="flex gap-2">
-                            <HomeIcon className="w-6 h-6" /> <span>{!collapsed && "Home"}</span>
-                        </Link>
-                    </div>
-                </div>
-
                 <nav className="flex-grow">
-                    <ul className="my-2 flex flex-col gap-2 items-stretch ">
-                        {navItems.map((item, index) => (
-                            <li
-                                key={index}
-                                className={classNames({
-                                    "text-indigo-100 hover:bg-indigo-900 flex": true,
-                                    "transition-colors duration-300": true,
-                                    "rounded-md p-2 mx-3 gap-4": !collapsed,
-                                    "rounded-full p-2 mx-3 w-10 h-10": collapsed,
-                                })}
-                            >
-                                <Link href={item.href} className="flex gap-2">
-                                    <CircleIcon text={item.letter} /> <span>{!collapsed && item.label}</span>
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                    <div className="flex flex-col gap-2 items-stretch pb-2">
+                        <div
+                            className={classNames({
+                                "text-indigo-100 hover:bg-indigo-900 flex": true,
+                                "transition-colors duration-300": true,
+                                "rounded-md p-2 mx-3 gap-4": !collapsed,
+                                "rounded-full p-2 mx-3 w-10 h-10": collapsed,
+                            })}
+                        >
+                            <Link href={'/'} className="flex gap-2">
+                                <HomeIcon className="w-6 h-6" /> <span>{!collapsed && "Home"}</span>
+                            </Link>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col gap-2 items-stretch pb-2">
+                        <div
+                            className={classNames({
+                                "text-indigo-100 hover:bg-indigo-900 flex": true,
+                                "transition-colors duration-300": true,
+                                "rounded-md p-2 mx-3 gap-4": !collapsed,
+                                "rounded-full p-2 mx-3 w-10 h-10": collapsed,
+                            })}
+                        >
+                            <Link href={"/solicitudes"} className="flex gap-2">
+                                <CircleIcon text={"S"} /> <span>{!collapsed && "Solicitudes"}</span>
+                            </Link>
+                        </div>
+                    </div>
                 </nav>
 
                 <div className="flex flex-col gap-2 items-stretch pb-2">
