@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 
-
 type FormData = {
     fullname: string,
     email: string,
